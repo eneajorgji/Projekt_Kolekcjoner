@@ -15,9 +15,10 @@ public:
 	vector<itemType> types;
 	vector<collectionItem> collections;
 
-public:
-	// @TODO: konstruktor; metody wg. funkcjonalnosci
-	// DataBase()
+public: 
+	void createItemType(const std::string& name, const std::vector<std::string>& attributes) {} //punkt 1.
+	void listTypes() const {} // punkt 6. const - zeby zabezpieczyæ przed modyfikacjami. 
+	void displayAllItems() const {} // punkt 7. const - zeby zabezpieczyæ przed modyfikacjami. 
 
 };
 
