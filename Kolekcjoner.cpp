@@ -68,20 +68,98 @@ int main()
 
 
         if (action == "2") {
+            cout << "Podaj nazwy typeName: "; 
+            cin >> typeName;
 
+            const itemType* itemType = db.findItemTypeByName(typeName);
+            
+            if (itemType == nullptr) {
+                cout << "Nie znaleznione danego typu."; 
+                continue;
+            }
+
+            cout << "Enter Status: ";
+            cin >> status;
+
+            customAttributes.clear();
+
+            for (const auto& attrName : itemType->attributes) {
+                cout << "Enter " << attrName << ": ";
+                cin >> value;
+
+                customAttributes[attrName] = value;
+                
+                db.addItem(*itemType, customAttributes, status);
+            }
         }
+
+
         if (action == "3") {
+            cout << "Podaj nazwy typeName: ";
+            cin >> typeName;
+
+            auto foundItems = db.findItems(typeName);
+
+            for (const auto& item : foundItems) {
+                std::cout << item.type.typeName << " found with status " << item.status << '\n';
+            }
 
         }
+
         if (action == "4") {
+            cout << "Podaj nazwy typeName: ";
+            std::getline(std::cin, typeName);
+
+            std::string identifyingKey, identifyingValue;
+            std::cout << "Enter identifying attribute name: ";
+
+            std::getline(std::cin, identifyingKey);
+            std::cout << "Enter identifying attribute value: ";
+            
+            std::getline(std::cin, identifyingValue);
+
+            std::map<std::string, std::string> newAttributes;
+            std::cout << "Enter new attributes (name value pairs, 'attributeName attributeValue'), finish with 'done':\n";
+            std::string attrName, attrValue;
+
+            while (true) {
+                std::getline(std::cin, attrName);
+                if (attrName == "done") break;
+                std::getline(std::cin, attrValue);
+                newAttributes[attrName] = attrValue;
+            }
+
+            if (db.editItem(typeName, identifyingKey, identifyingValue, newAttributes)) {
+                std::cout << "Item updated successfully.\n";
+            }
+            else {
+                std::cout << "Failed to update item. It may not exist or the identifier was incorrect.\n";
+            }
 
         }
+
         if (action == "5") {
+            std::cout << "Enter item type name: ";
+            std::getline(std::cin, typeName);
 
+            std::string identifyingKey, identifyingValue;
+            std::cout << "Enter identifying attribute name: ";
+            std::getline(std::cin, identifyingKey);
+            std::cout << "Enter identifying attribute value: ";
+            std::getline(std::cin, identifyingValue);
+
+            if (db.removeItem(typeName, identifyingKey, identifyingValue)) {
+                std::cout << "Item updated successfully.\n";
+            }
+            else {
+                std::cout << "Failed to remove item. It may not exist or the identifier was incorrect.\n";
+            }
         }
+
         if (action == "6") {
             db.listTypes();
         }
+
         if (action == "7") {
             db.displayAllItems();
         }

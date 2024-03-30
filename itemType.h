@@ -11,10 +11,9 @@ public:
 	string typeName;
 	vector<string> attributes;
 
-
 public:
 	// Konstruktor -> itemType
-	itemType(string typeName, vector<string> attributes):
-	typeName(typeName), attributes(attributes) {}
+	itemType(const std::string& name, const std::vector<std::string>& attributes)
+		: typeName(name), attributes(attributes) {}
 };
 

@@ -12,14 +12,13 @@ class collectionItem
 {
 public:
 	itemType type;
-	map<string, int> mpItemType;
+	map<string, string> customAttributes;
 	string status;
 
 public:
-	collectionItem(itemType type, string status):
-	type(type), status(status) {}
+	collectionItem(const itemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status)
+        : type(type), customAttributes(customAttributes), status(status) {}
 
-	/*mpItemType["typeName"] = 1;
-	mpItemType[""]*/
+
 };
 
