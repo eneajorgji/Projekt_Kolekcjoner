@@ -1,10 +1,12 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <map>
+#include <algorithm>
+#include <limits>
 
-//#include "collection.h"
-#include "itemType.h"
-#include "collectionItem.h"
+#include "ItemType.h"
+
 
 #pragma once
 
@@ -12,8 +14,8 @@
 class DataBase
 {
 public:
-	vector<itemType> types;
-	vector<collectionItem> items;
+	vector<ItemType> types;
+	vector<CollectionItem> items;
 
 public:
 	//punkt 1. -> {wszystkie te dane dodaje to wektora}
@@ -21,12 +23,12 @@ public:
 		types.emplace_back(name, attributes); 
 	} 
 	
-	void addItem(const itemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status) {
+	void addItem(const ItemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status) {
 		items.emplace_back(type, customAttributes, status);
 	}
 	
-	std::vector<collectionItem> findItems(const std::string& typeName) const {
-		std::vector<collectionItem> foundItems;
+	std::vector<CollectionItem> findItems(const std::string& typeName) const {
+		std::vector<CollectionItem> foundItems;
 		for (const auto& item : items) {
 			if (item.type.name == typeName) {
 				foundItems.push_back(item);
@@ -52,9 +54,9 @@ public:
 		return false;
 	}
 
-	const itemType* findItemTypeByName(const std::string& typeName) const {
+	const ItemType* findItemTypeByName(const std::string& typeName) const {
 		auto it = std::find_if(types.begin(), types.end(),
-			[&typeName](const itemType& type) { return type.name == typeName; });
+			[&typeName](const ItemType& type) { return type.name == typeName; });
 		if (it != types.end()) {
 			return &(*it);
 		}
@@ -64,7 +66,7 @@ public:
 	}
 	
 	bool removeItem(const std::string& typeName, const std::string& key, const std::string& keyValue) {
-		auto it = std::remove_if(items.begin(), items.end(), [&](const collectionItem& item) {
+		auto it = std::remove_if(items.begin(), items.end(), [&](const CollectionItem& item) {
 			try {
 				return item.type.name == typeName && item.customAttributes.at(key) == keyValue;
 			}
@@ -101,7 +103,5 @@ public:
 			std::cout << "-------------------------\n";
 		}
 	} 
-
-	
 };
 

@@ -134,9 +134,9 @@
     <ClCompile Include="Kolekcjoner.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="collectionItem.h" />
+    <ClInclude Include="CollectionItem.h" />
     <ClInclude Include="DataBase.h" />
-    <ClInclude Include="itemType.h" />
+    <ClInclude Include="ItemType.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

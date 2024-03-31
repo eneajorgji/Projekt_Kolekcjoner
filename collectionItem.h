@@ -1,22 +1,27 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <map>
+#include <algorithm>
+#include <limits>
 
-#include "itemType.h"
+#include "DataBase.h"
 
 using namespace std;
 
 #pragma once
 
-class collectionItem 
-{
+class CollectionItem {
 public:
-	itemType type;
-	map<string, string> customAttributes;
-	string status;
+    ItemType type;
+    std::map<std::string, std::string> customAttributes;
+    std::string status;
 
-public:
-	collectionItem(const itemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status)
-		: type(type), customAttributes(customAttributes), status(status) {}
+    CollectionItem(const ItemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status)
+        : type(type), customAttributes(customAttributes), status(status) {}
 };
+
+bool operator==(const CollectionItem& lhs, const CollectionItem& rhs) {
+    return lhs.type.name == rhs.type.name && lhs.customAttributes == rhs.customAttributes && lhs.status == rhs.status;
+}
 

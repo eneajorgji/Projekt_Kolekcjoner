@@ -1,18 +1,23 @@
+#include <iostream>
 #include <vector>
 #include <string>
+#include <map>
+#include <algorithm>
+#include <limits>
+
+
+
 using namespace std;
 
 #pragma once
 
 
-class itemType
-{
+class ItemType {
 public:
-	string name;
-	vector<string> attributes;
+    std::string name;
+    std::vector<std::string> attributes;
 
-public:
-	itemType(const string& name, const vector<string>& attributes)
-		: name(name), attributes(attributes) {}
+    ItemType(const std::string& name, const std::vector<std::string>& attributes)
+        : name(name), attributes(attributes) {}
 };
 

@@ -6,8 +6,8 @@
 #include <limits>
 
 #include "DataBase.h"
-#include "collection.h"
-#include "itemType.h"
+#include "ItemType.h"
+#include "CollectionItem.h"
 
 
 using namespace std;
@@ -67,7 +67,7 @@ int main()
             cout << "Enter item type name: "; 
             cin >> typeName;
 
-            const itemType* itemType = db.findItemTypeByName(typeName);
+            const ItemType* itemType = db.findItemTypeByName(typeName);
             
             if (itemType == nullptr) {
                 cout << "Item type not found.\n"; 
