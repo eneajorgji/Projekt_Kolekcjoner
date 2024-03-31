@@ -13,7 +13,7 @@ public:
 
 public:
 	// Konstruktor -> itemType
-	itemType(const std::string& name, const std::vector<std::string>& attributes)
+	itemType(const string& name, const vector<string>& attributes)
 		: typeName(name), attributes(attributes) {}
 };
 

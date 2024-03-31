@@ -23,7 +23,7 @@ int main()
     DataBase db;
 
 
-    // Menu
+    // Menu konsolowe
     while (true) {
         cout << "Choose an action: \n"
             << "1. Create new item type\n"

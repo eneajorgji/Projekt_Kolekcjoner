@@ -17,8 +17,6 @@ public:
 
 public:
 	collectionItem(const itemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status)
-        : type(type), customAttributes(customAttributes), status(status) {}
-
-
+		: type(type), customAttributes(customAttributes), status(status) {}
 };
 
