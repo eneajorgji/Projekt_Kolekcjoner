@@ -13,31 +13,19 @@ class DataBase
 {
 public:
 	vector<itemType> types;
-	vector<collectionItem> collections;
+	vector<collectionItem> items;
 
-public: 
-	void createItemType(const std::string& name, const std::vector<std::string>& attributes) { types.emplace_back(name, attributes); } //punkt 1. -> {wszystkie te dane dodaje to wektora}
-	void addItem(const itemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status) {collections.emplace_back(type, customAttributes, status);}
-	
-	// M: Sprawdza czy dobrze sie dodala.
-	bool editItem(const std::string& typeName, const std::string& key, const std::string& keyValue, const std::map<std::string, std::string>& newAttributes) {
-		for (auto & item : items) {
-
-			try {
-				if (item.type.name == typeName && item.customAttributes.at(key) == keyValue) {
-					item.customAttributes = newAttributes;
-					return true;
-				}
-			}
-			catch (const std::out_of_range&) {
-				cout << "Change not possible. ";
-				continue;
-			}
-		}
-		return false;
+public:
+	//punkt 1. -> {wszystkie te dane dodaje to wektora}
+	void createItemType(const std::string& name, const std::vector<std::string>& attributes) { 
+		types.emplace_back(name, attributes); 
 	} 
-
-	const itemType* findItemTypeByName(const std::string& typeName) const {
+	
+	void addItem(const itemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status) {
+		items.emplace_back(type, customAttributes, status);
+	}
+	
+	std::vector<collectionItem> findItems(const std::string& typeName) const {
 		std::vector<collectionItem> foundItems;
 		for (const auto& item : items) {
 			if (item.type.name == typeName) {
@@ -45,6 +33,34 @@ public:
 			}
 		}
 		return foundItems;
+	}
+
+
+	// M: Sprawdza czy dobrze sie dodala.
+	bool editItem(const std::string& typeName, const std::string& key, const std::string& keyValue, const std::map<std::string, std::string>& newAttributes) {
+		for (auto& item : items) {
+			try {
+				if (item.type.name == typeName && item.customAttributes.at(key) == keyValue) {
+					item.customAttributes = newAttributes;
+					return true;
+				}
+			}
+			catch (const std::out_of_range&) {
+				continue;
+			}
+		}
+		return false;
+	}
+
+	const itemType* findItemTypeByName(const std::string& typeName) const {
+		auto it = std::find_if(types.begin(), types.end(),
+			[&typeName](const itemType& type) { return type.name == typeName; });
+		if (it != types.end()) {
+			return &(*it);
+		}
+		else {
+			return nullptr;
+		}
 	}
 	
 	bool removeItem(const std::string& typeName, const std::string& key, const std::string& keyValue) {
@@ -86,15 +102,6 @@ public:
 		}
 	} 
 
-	std::vector<collectionItem> findItems(const std::string& typeName) const {
-		auto it = std::find_if(types.begin(), types.end(),
-			[&typeName](const itemType& type) { return type.name == typeName; });
-		if (it != types.end()) {
-			return &(*it);
-		}
-		else {
-			return nullptr;
-		}
-	}
+	
 };
 

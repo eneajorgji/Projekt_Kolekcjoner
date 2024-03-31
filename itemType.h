@@ -8,12 +8,11 @@ using namespace std;
 class itemType
 {
 public:
-	string typeName;
+	string name;
 	vector<string> attributes;
 
 public:
-	// Konstruktor -> itemType
 	itemType(const string& name, const vector<string>& attributes)
-		: typeName(name), attributes(attributes) {}
+		: name(name), attributes(attributes) {}
 };
 

@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <algorithm>
+#include <limits>
 
 #include "DataBase.h"
 #include "collection.h"
@@ -13,6 +14,8 @@ using namespace std;
 
 int main()
 {
+    DataBase db;
+
     string action, typeName, status;
     string key, value; 
     int attributeCount;
@@ -20,8 +23,7 @@ int main()
     vector<string> attributeNames;
     map<string, string> customAttributes;
     
-    DataBase db;
-
+    
 
     // Menu konsolowe
     while (true) {
@@ -37,30 +39,24 @@ int main()
             << "Enter your choice: ";
         
         cin >> action;
+        //std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
 
-        if (action == "8") {
-            break;
-            cout << "You exit the programme";
-        } 
-        else {
-            cout << "Invalid Action, try again!";
-            };
-
+        // 1
         if (action == "1") {
-            cout << "Podaj typeName: ";
+            cout << "Enter item type name: ";
             cin >> typeName;
 
-            cout << "Podaj iloœæ atrybutów" << endl;
+            cout << "How many attributes? " << endl;
             cin >> attributeCount;
             
             attributeNames.clear();
 
-            for (int i = 0; i < attributeCount; i++) {
-                cout << "Podaj nazwe atrybuty: " << i + 1 << " ";
+            for (int i = 0; i < attributeCount; ++i) {
+                cout << "Podaj nazwe atrybuty: ";
                 cin >> key; 
                                 
                 attributeNames.push_back(key);
-
             }
 
             db.createItemType(typeName, attributeNames);
@@ -68,13 +64,13 @@ int main()
 
 
         if (action == "2") {
-            cout << "Podaj nazwy typeName: "; 
+            cout << "Enter item type name: "; 
             cin >> typeName;
 
             const itemType* itemType = db.findItemTypeByName(typeName);
             
             if (itemType == nullptr) {
-                cout << "Nie znaleznione danego typu."; 
+                cout << "Item type not found.\n"; 
                 continue;
             }
 
@@ -88,26 +84,26 @@ int main()
                 cin >> value;
 
                 customAttributes[attrName] = value;
-                
-                db.addItem(*itemType, customAttributes, status);
             }
+
+            db.addItem(*itemType, customAttributes, status);
         }
 
 
         if (action == "3") {
-            cout << "Podaj nazwy typeName: ";
+            cout << "Enter item type name to find: ";
             cin >> typeName;
 
             auto foundItems = db.findItems(typeName);
 
             for (const auto& item : foundItems) {
-                std::cout << item.type.typeName << " found with status " << item.status << '\n';
+                std::cout << item.type.name << " found with status " << item.status << '\n';
             }
-
         }
 
+
         if (action == "4") {
-            cout << "Podaj nazwy typeName: ";
+            cout << "Enter item type name: ";
             std::getline(std::cin, typeName);
 
             std::string identifyingKey, identifyingValue;
@@ -135,8 +131,8 @@ int main()
             else {
                 std::cout << "Failed to update item. It may not exist or the identifier was incorrect.\n";
             }
-
         }
+
 
         if (action == "5") {
             std::cout << "Enter item type name: ";
@@ -144,6 +140,7 @@ int main()
 
             std::string identifyingKey, identifyingValue;
             std::cout << "Enter identifying attribute name: ";
+
             std::getline(std::cin, identifyingKey);
             std::cout << "Enter identifying attribute value: ";
             std::getline(std::cin, identifyingValue);
@@ -156,13 +153,25 @@ int main()
             }
         }
 
+
         if (action == "6") {
             db.listTypes();
         }
 
+        
         if (action == "7") {
             db.displayAllItems();
         }
+
+        
+        if (action == "8") {
+            break;
+            cout << "You exit the programme";
+        }
+        else {
+            cout << "Invalid Action, try again!";
+            };
+        
         
     }
 
