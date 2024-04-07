@@ -9,3 +9,4 @@ CollectionItem::CollectionItem(const ItemType& type, const std::map<std::string,
 bool operator==(const CollectionItem& lhs, const CollectionItem& rhs) {
     return lhs.type.name == rhs.type.name && lhs.customAttributes == rhs.customAttributes && lhs.status == rhs.status;
 }
+

@@ -1,3 +1,8 @@
+#pragma once
+
+#ifndef DATABASE_H
+#define DATABASE_H
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -5,10 +10,11 @@
 #include <algorithm>
 #include <limits>
 
+#include "CollectionItem.h"
 //#include "ItemType.h"
 
 
-#pragma once
+
 
 
 //class DataBase
@@ -106,16 +112,19 @@
 //};
 
 class DataBase {
-public:
+private:
     std::vector<ItemType> types;
     std::vector<CollectionItem> items;
 
+public:
     void createItemType(const std::string& name, const std::vector<std::string>& attributes);
     void addItem(const ItemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status);
     std::vector<CollectionItem> findItems(const std::string& typeName) const;
     bool editItem(const std::string& typeName, const std::string& key, const std::string& keyValue, const std::map<std::string, std::string>& newAttributes);
-    const ItemType* findItemTypeByName(const std::string& typeName) const;
     bool removeItem(const std::string& typeName, const std::string& key, const std::string& keyValue);
     void listTypes() const;
     void displayAllItems() const;
+    const ItemType* findItemTypeByName(const std::string& typeName) const;
 };
+
+#endif // DATABASE_H

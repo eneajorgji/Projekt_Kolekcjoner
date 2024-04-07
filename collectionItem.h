@@ -1,3 +1,6 @@
+#ifndef COLLECTIONITEM_H
+#define COLLECTIONITEM_H
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -5,11 +8,11 @@
 #include <algorithm>
 #include <limits>
 
+#include"ItemType.h"
+
 //#include "DataBase.h"
 
 using namespace std;
-
-#pragma once
 
 //class CollectionItem {
 //public:
@@ -31,9 +34,9 @@ public:
     std::map<std::string, std::string> customAttributes;
     std::string status;
 
-    // Constructor declaration.
     CollectionItem(const ItemType& type, const std::map<std::string, std::string>& customAttributes, const std::string& status);
-
-    // Friend function declaration for operator== to allow it access to private members (if there are any).
-    friend bool operator==(const CollectionItem& lhs, const CollectionItem& rhs);
 };
+
+bool operator==(const CollectionItem& lhs, const CollectionItem& rhs);
+
+#endif // COLLECTIONITEM_H

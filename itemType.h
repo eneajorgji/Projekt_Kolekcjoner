@@ -1,31 +1,16 @@
-#include <iostream>
-#include <vector>
+// ItemType.h
+#ifndef ITEMTYPE_H
+#define ITEMTYPE_H
+
 #include <string>
-#include <map>
-#include <algorithm>
-#include <limits>
-
-//#include "CollectionItem.h"
-
-using namespace std;
-
-#pragma once
-
-
-//class ItemType {
-//public:
-//    std::string name;
-//    std::vector<std::string> attributes;
-//
-//    ItemType(const std::string& name, const std::vector<std::string>& attributes)
-//        : name(name), attributes(attributes) {}
-//};
+#include <vector>
 
 class ItemType {
 public:
     std::string name;
     std::vector<std::string> attributes;
 
-    // Constructor declaration.
     ItemType(const std::string& name, const std::vector<std::string>& attributes);
 };
+
+#endif // ITEMTYPE_H

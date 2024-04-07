@@ -24,7 +24,6 @@ int main()
     map<string, string> customAttributes;
     
     
-
     // Menu konsolowe
     while (true) {
         cout << "Choose an action: \n"
@@ -171,10 +170,7 @@ int main()
         else {
             cout << "Invalid Action, try again!";
             };
-        
-        
+            
     }
-
-
 
 }
