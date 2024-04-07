@@ -18,10 +18,10 @@
     <ClCompile Include="Kolekcjoner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="itemType.cpp">
+    <ClCompile Include="ItemType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="collectionItem.cpp">
+    <ClCompile Include="CollectionItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DataBase.cpp">

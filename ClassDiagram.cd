@@ -1,24 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="DataBase">
-    <Position X="7.5" Y="1" Width="2.25" />
+    <Position X="8.25" Y="0.5" Width="2.25" />
+    <AssociationLine Name="items" Type="std::vector&lt;_Ty, _Alloc&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="0.938" />
+        <Point X="5.849" Y="0.938" />
+        <Point X="5.849" Y="1" />
+        <Point X="5.75" Y="1" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAQAAAAEAAAAAAAEBAiAAACAEABAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>DataBase.h</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="items" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="types" />
+    </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="itemType">
-    <Position X="4.25" Y="2.25" Width="1.5" />
+  <Class Name="ItemType">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAAAAACAAAAAAA=</HashCode>
-      <FileName>itemType.h</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ItemType.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="attributes" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CollectionItem">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <AssociationLine Name="customAttributes" Type="std::map&lt;_Kty, _Ty, _Pr, _Alloc&gt;" ManuallyRouted="true">
+      <Path>
+        <Point X="4.75" Y="3.623" />
+        <Point X="4.831" Y="3.623" />
+        <Point X="4.831" Y="3.521" />
+        <Point X="6.75" Y="3.521" />
+        <Point X="6.75" Y="2.941" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAACAAAAAAAAAAAABAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>CollectionItem.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="customAttributes" />
+      <Field Name="type" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="std::map&lt;_Kty, _Ty, _Pr, _Alloc&gt;" Collapsed="true">
+    <Position X="5.5" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAABAAACwAAAAAAAAAAEBBAABgQAgAAAAAAA=</HashCode>
+      <FileName>C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\map</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="collectionItem">
-    <Position X="1.25" Y="1.25" Width="1.5" />
+  <Class Name="std::vector&lt;_Ty, _Alloc&gt;" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAIAAAAAAAAAAAAAAAAABAAAAAAAAAAAAIAA=</HashCode>
-      <FileName>collectionItem.h</FileName>
+      <HashCode>A2AAEYEiAbLsCEBAAONYMAkWM0UARBIggQkwghAFQko=</HashCode>
+      <FileName>C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

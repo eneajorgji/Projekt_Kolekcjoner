@@ -128,9 +128,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="collectionItem.cpp" />
+    <ClCompile Include="CollectionItem.cpp" />
     <ClCompile Include="DataBase.cpp" />
-    <ClCompile Include="itemType.cpp" />
+    <ClCompile Include="ItemType.cpp" />
     <ClCompile Include="Kolekcjoner.cpp" />
   </ItemGroup>
   <ItemGroup>
