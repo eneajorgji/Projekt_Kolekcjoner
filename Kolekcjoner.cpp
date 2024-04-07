@@ -59,10 +59,7 @@ int main()
             }
 
             db.createItemType(typeName, attributeNames);
-        }
-
-
-        if (action == "2") {
+        } else if (action == "2") {
             cout << "Enter item type name: "; 
             cin >> typeName;
 
@@ -87,9 +84,7 @@ int main()
 
             db.addItem(*itemType, customAttributes, status);
         }
-
-
-        if (action == "3") {
+        else if (action == "3") {
             cout << "Enter item type name to find: ";
             cin >> typeName;
 
@@ -99,9 +94,8 @@ int main()
                 std::cout << item.type.name << " found with status " << item.status << '\n';
             }
         }
-
-
-        if (action == "4") {
+        
+        else if (action == "4") {
             cout << "Enter item type name: ";
             std::getline(std::cin, typeName);
 
@@ -132,8 +126,7 @@ int main()
             }
         }
 
-
-        if (action == "5") {
+        else if (action == "5") {
             std::cout << "Enter item type name: ";
             std::getline(std::cin, typeName);
 
@@ -152,25 +145,25 @@ int main()
             }
         }
 
-
-        if (action == "6") {
+        else if (action == "6") {
             db.listTypes();
         }
 
         
-        if (action == "7") {
+        else if (action == "7") {
+            cout << "Action 7 ";
             db.displayAllItems();
         }
 
         
-        if (action == "8") {
-            break;
+        else if (action == "8") {
             cout << "You exit the programme";
+            break;
         }
         else {
             cout << "Invalid Action, try again!";
             };
             
     }
-
+    return 0;
 }
