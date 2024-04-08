@@ -52,14 +52,16 @@ int main()
             attributeNames.clear();
 
             for (int i = 0; i < attributeCount; ++i) {
-                cout << "Podaj nazwe atrybuty: ";
+                cout << "Enter attribute name: ";
                 cin >> key; 
                                 
                 attributeNames.push_back(key);
             }
 
             db.createItemType(typeName, attributeNames);
-        } else if (action == "2") {
+        } 
+        
+        else if (action == "2") {
             cout << "Enter item type name: "; 
             cin >> typeName;
 
@@ -84,6 +86,8 @@ int main()
 
             db.addItem(*itemType, customAttributes, status);
         }
+
+
         else if (action == "3") {
             cout << "Enter item type name to find: ";
             cin >> typeName;
