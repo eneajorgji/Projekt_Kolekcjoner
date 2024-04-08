@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Kolekcjoner", "Kolekcjoner.vcxproj", "{4D53867B-40DD-4397-8274-C20B6E616993}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KolekcjonerServer", "Kolekcjoner.vcxproj", "{4D53867B-40DD-4397-8274-C20B6E616993}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KolekcjonerGUI", "QtQuickApplication1\QtQuickApplication1.vcxproj", "{A9F65DC4-6496-443F-B9A8-581BEFF0D835}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{4D53867B-40DD-4397-8274-C20B6E616993}.Release|x64.Build.0 = Release|x64
 		{4D53867B-40DD-4397-8274-C20B6E616993}.Release|x86.ActiveCfg = Release|Win32
 		{4D53867B-40DD-4397-8274-C20B6E616993}.Release|x86.Build.0 = Release|Win32
+		{A9F65DC4-6496-443F-B9A8-581BEFF0D835}.Debug|x64.ActiveCfg = Debug|x64
+		{A9F65DC4-6496-443F-B9A8-581BEFF0D835}.Debug|x64.Build.0 = Debug|x64
+		{A9F65DC4-6496-443F-B9A8-581BEFF0D835}.Debug|x86.ActiveCfg = Debug|x64
+		{A9F65DC4-6496-443F-B9A8-581BEFF0D835}.Debug|x86.Build.0 = Debug|x64
+		{A9F65DC4-6496-443F-B9A8-581BEFF0D835}.Release|x64.ActiveCfg = Release|x64
+		{A9F65DC4-6496-443F-B9A8-581BEFF0D835}.Release|x64.Build.0 = Release|x64
+		{A9F65DC4-6496-443F-B9A8-581BEFF0D835}.Release|x86.ActiveCfg = Release|x64
+		{A9F65DC4-6496-443F-B9A8-581BEFF0D835}.Release|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
