@@ -8,7 +8,10 @@
 #include "DataBase.h"
 #include "ItemType.h"
 #include "CollectionItem.h"
-
+#include "Logger.h"
+#include "BackupUtility.h"
+#include "SearchUtility.h"
+#include "Statistics.h"
 
 using namespace std;
 
@@ -161,12 +164,38 @@ int main()
 
         
         else if (action == "8") {
-            cout << "You exit the programme";
+            Logger::log("Exiting application.");
             break;
         }
+
+        else if (action == "9") {
+            Logger::log("Showing statistics:");
+            std::cout << "Total item types: " << Statistics::getTypeCount(db) << std::endl;
+            std::cout << "Total items: " << Statistics::getItemCount(db) << std::endl;
+        }
+
+        // 10 
+        else if (action == "10") {
+            Logger::log("Searching by attribute...");
+            std::cout << "Enter attribute name: ";
+            std::getline(std::cin, key);
+            std::cout << "Enter attribute value: ";
+            std::getline(std::cin, value);
+            auto foundItems = SearchUtility::searchByAttribute(db, key, value);
+            for (const auto& item : foundItems) {
+                item.display();
+            }
+        }
+
+        // 11
+        else if (action == "11") {
+            BackupUtility::backup(db);
+            }
         else {
-            cout << "Invalid Action, try again!";
-            };
+            Logger::log("Invalid action. Please try again.");
+        }
+
+   
             
     }
     return 0;

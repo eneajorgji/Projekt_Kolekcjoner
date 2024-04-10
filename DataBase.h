@@ -11,7 +11,7 @@
 #include <limits>
 
 #include "CollectionItem.h"
-//#include "ItemType.h"
+#include "ItemType.h"
 
 
 
@@ -125,6 +125,14 @@ public:
     void listTypes() const;
     void displayAllItems() const;
     const ItemType* findItemTypeByName(const std::string& typeName) const;
+
+    int getItemCount() const;
+    int getTypeCount() const;
+
+    std::vector<CollectionItem> findItemsByAttribute(const std::string& attributeName, const std::string& attributeValue) const;
+
+    // getItems
+    std::vector<CollectionItem> getItems() const;
 };
 
 #endif // DATABASE_H

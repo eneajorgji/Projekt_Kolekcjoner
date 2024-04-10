@@ -128,17 +128,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AuditTrail.cpp" />
+    <ClCompile Include="BackupUtility.cpp" />
     <ClCompile Include="CollectionItem.cpp" />
     <ClCompile Include="DataBase.cpp" />
     <ClCompile Include="Displayable.cpp" />
     <ClCompile Include="ItemType.cpp" />
     <ClCompile Include="Kolekcjoner.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="SearchUtility.cpp" />
+    <ClCompile Include="Statistics.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AuditTrail.h" />
+    <ClInclude Include="BackupUtility.h" />
     <ClInclude Include="CollectionItem.h" />
     <ClInclude Include="DataBase.h" />
     <ClInclude Include="Displayable.h" />
     <ClInclude Include="ItemType.h" />
+    <ClInclude Include="Logger.h" />
+    <ClInclude Include="SearchUtility.h" />
+    <ClInclude Include="Statistics.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

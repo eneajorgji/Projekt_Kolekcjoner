@@ -1,4 +1,6 @@
 #include "DataBase.h"
+
+#include "ItemType.h"
 #include <algorithm>
 #include <iostream>
 
@@ -81,3 +83,28 @@ void DataBase::displayAllItems() const {
         std::cout << "-------------------------\n";
     }
 }
+
+int DataBase::getItemCount() const {
+    return items.size();
+}
+
+int DataBase::getTypeCount() const {
+    return types.size();
+}
+
+std::vector<CollectionItem> DataBase::findItemsByAttribute(const std::string & attributeName, const std::string & attributeValue) const {
+    std::vector<CollectionItem> foundItems;
+    for (const auto& item : items) {
+        auto it = item.customAttributes.find(attributeName);
+        if (it != item.customAttributes.end() && it->second == attributeValue) {
+            foundItems.push_back(item);
+        }
+    }
+    return foundItems;
+}
+
+std::vector<CollectionItem> DataBase::getItems() const {
+    return items;
+}
+
+
